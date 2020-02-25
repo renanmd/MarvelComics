@@ -21,6 +21,14 @@ class CharactersTableViewController: UITableViewController {
         Characters(name: "Venom", description: "Symbiote", image: "Venom"),
         Characters(name: "IronMan", description: "Billioniare", image: "IronMan")
     ]
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        MarvelService.getCharacters { characters in
+            print(characters?.last?.name)
+        }
+    }
 
     // MARK: - Table view data source
 
